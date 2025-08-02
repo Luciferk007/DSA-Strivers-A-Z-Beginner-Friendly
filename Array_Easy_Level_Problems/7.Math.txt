@@ -1,0 +1,126 @@
+#include<iostream>
+using namespace std;
+
+void countN(int n)
+{ int count =0;
+  while(n!=0)
+  {
+    n = n/10;
+    count++;
+  }
+  cout<<count<<endl;
+}
+
+int reverseN(int n)
+{
+  int reverse=0;
+  int lastdigit;
+
+  while(n!=0)
+  {
+    lastdigit = n%10;
+    reverse = reverse*10;
+    reverse += lastdigit;
+    n = n/10;
+  }
+  return reverse;
+}
+bool is_palindrome(int n)
+{
+  int digit = n;
+  int reverse = reverseN(n);
+  if(digit == reverse)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+
+int maxof(int a,int b)
+{ 
+  int max;
+  if(a>b)
+  {
+    max =a;
+  }
+  else
+  {
+    max =b;
+  }
+  return max;
+}
+
+bool is_prime(int n)
+{ 
+  int count =0;
+  for(int i=1; i<n; i++)
+  {
+    if(n%i == 0)
+    {
+      count++;
+    }
+  }
+  if(count<2)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+void hcf(int a, int b)
+{ 
+  int max = 0;
+  
+  for(int i=1; i<maxof(a,b); i++)
+  {
+    if(is_prime(i))
+    {
+      if(a%i == 0 && b%i == 0)
+      {
+        max = maxof(max, i);
+      }
+    }
+  }
+  cout<<"HCF IS: "<<max<<endl;
+}
+
+void print_all_divisor(int n)
+{
+  for(int i=1; i<=n; i++)
+  {
+    if(n%i == 0)
+    {
+      cout<<i<<",";
+    }
+  }
+}
+
+int main()
+{
+  countN(100098);
+  cout<<reverseN(123);
+  if (is_palindrome(12332))
+  {
+    cout<<endl<<"yes it is"<<endl;
+  }
+  else
+  {
+    cout<<endl<<"No not a palindrome"<<endl;
+  }
+  if (is_prime(1))
+  {
+    cout<<"yes prime"<<endl;
+  }
+  else
+  {
+    cout<<"Not a prime"<<endl;
+  }
+  hcf(12,24);
+  print_all_divisor(12);
+  
+}

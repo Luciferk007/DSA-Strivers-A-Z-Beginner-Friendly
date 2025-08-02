@@ -1,0 +1,65 @@
+#include<iostream>
+#include<vector>
+#include<set>
+#include<map>
+using namespace std;
+
+void union_array(int arr1[], int arr2[], int n, int m)
+{
+  set<int>s;
+  vector <int> union_vec;
+  for(int i=0; i<n; i++)
+  {
+    s.insert(arr1[i]);
+  }
+  
+  for(int j=0; j<m; j++)
+  {
+    s.insert(arr2[j]);
+  }
+  for(auto &it: s)
+  {
+    union_vec.push_back(it);
+  }
+  
+  for(int k=0; k<union_vec.size(); k++)
+  {
+    cout<<union_vec[k]<<" ";
+  }
+}
+
+//Using map
+void union_map(int arr1[], int arr2[], int n, int m)
+{
+  map<int,int>freq;
+  vector<int> union_map;
+  for(int i=0; i<n; i++)
+  {
+    freq[arr1[i]]++;
+  }
+  for(int j=0; j<m; j++)
+  {
+    freq[arr2[j]]++;
+  }
+  for(auto &it: freq)
+  {
+    union_map.push_back(it.first);
+  }
+  
+  for(int k=0; k<union_map.size(); k++)
+  {
+    cout<<union_map[k]<<" ";
+  }
+  cout<<endl;
+  
+}
+
+int main()
+{
+  int arr1[] = {1,2,3,4};
+  int arr2[] = {2,4,5,6};
+  int n = sizeof(arr1)/sizeof(arr1[0]);
+  int m = sizeof(arr2)/sizeof(arr2[0]);
+  union_map(arr1,arr2,n,m);
+  union_array(arr1,arr2,n,m);
+}

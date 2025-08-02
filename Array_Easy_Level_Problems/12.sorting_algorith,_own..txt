@@ -1,0 +1,71 @@
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+void selcection_sort(int arr[], int n)
+{ 
+  int min = INT_MAX;
+  int index;
+  int temp;
+  for(int i=0; i<n; i++)
+  {
+    for(int j=i; j<n; j++)
+    {
+      if(arr[j]<min)
+      {
+        min = arr[j];
+        index = j;
+      }
+    }
+    temp = arr[i];
+    arr[i] = arr[index];
+    arr[index] = temp;
+    min = INT_MAX;
+  }
+}
+
+void bubble_sort(int arr[], int n)
+{ 
+  int temp;
+  for(int i=0; i<n-1; i++)
+  {
+    for(int j=0; j<n-i-1; j++)
+    {
+        if(arr[j]>arr[j+1])
+        {
+          temp = arr[j+1];
+          arr[j+1] = arr[j];
+          arr[j] = temp;
+        }
+    }
+  }
+}
+
+
+void print_array(int arr[], int n)
+{
+  //n = sizeof(arr)/sizeof(arr[0]);// cannot pass it here because it arr[]inside fucntion return a pointer so 8/4 = 2
+  for(int i=0; i<n; i++)
+  {
+    cout<<arr[i]<<" ";
+  }
+}
+
+int main()
+{
+  int arr1[] = {1,4,7,2,10,14};
+  int arr2[] = {10,2,34,5,6};
+  int n2 = sizeof(arr2)/sizeof(arr2[0]);
+  int n1 = sizeof(arr1)/sizeof(arr1[0]);
+  print_array(arr1,n1);
+  cout<<endl;
+  selcection_sort(arr1,n1);
+  print_array(arr1,n1);
+  cout<<endl;
+  print_array(arr2,n2);
+  cout<<endl;
+  bubble_sort(arr2,n2);
+  print_array(arr2,n2);
+  cout<<endl;
+  
+}

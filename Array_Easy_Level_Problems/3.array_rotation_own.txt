@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+void swap (int *a, int *b)
+{
+  int temp = *a;
+   *a = *b;
+   *b = temp;
+}
+
+void rotate_left_one(int arr[], int n)
+{
+  for(int i=1; i<n; i++)
+  {
+    swap(&arr[i-1],&arr[i]);
+  }
+}
+
+void rotate_left_k(int arr[], int n, int k)
+{
+  if(k>n)
+  {
+    k = k%n;
+  }
+  for(int i=0; i<k; i++)
+  {
+    for(int j=1; j<n; j++)
+    {
+      swap(&arr[j-1],&arr[j]);
+    }
+  }
+}
+
+void print_array(int arr[], int n)
+{
+  for(int i=0; i<n; i++)
+  {
+    cout<<arr[i]<<" ";
+  }
+}
+
+int main()
+{
+  int arr[] = {1,2,3,4};
+  int n = sizeof(arr)/sizeof(arr[0]);
+  rotate_left_one(arr,n);
+  print_array(arr,n);
+  cout<<endl;
+  rotate_left_k(arr,n,9);
+  print_array(arr,n);
+}

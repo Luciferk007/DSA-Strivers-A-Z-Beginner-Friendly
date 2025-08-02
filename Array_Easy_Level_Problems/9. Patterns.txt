@@ -1,0 +1,103 @@
+----------------------------------------------------------------------------------------------------------------------------------
+Approach: 
+
+There are 4 general rules for solving a pattern-based question : 
+
+--> We always use nested loops for printing the patterns. For the outer loop, we count the number of lines/rows and loop for them.
+--> Next, for the inner loop, we focus on the number of columns and somehow connect them to the rows by forming a logic such that for each row we get the required number of columns to be printed.
+--> We print the ‘*’ inside the inner loop.
+--> Observe symmetry in the pattern or check if a pattern is a combination of two or more similar patterns or not.
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+hashtag#include<iostream>
+using namespace std;
+
+void pattern1(int n)
+{
+ for(int i=0; i<n; i++)
+ {
+ for(int j=0; j<n; j++)
+ {
+ cout<<"*";
+ }
+ cout<<endl;
+ }
+ 
+}
+
+void pattern2(int n)
+{
+ for(int i=0; i<n; i++)
+ {
+ for(int j=i; j<n; j++)
+ {
+ cout<<"*";
+ }
+ cout<<endl;
+ }
+ 
+}
+
+void pattern3(int n)
+{
+ for(int i=n; i>0; i--)
+ {
+ for(int j=i; j<=n; j++)
+ {
+ cout<<"*";
+ }
+ cout<<endl;
+ }
+ 
+}
+
+void pattern4(int n)
+{
+ for(int i=0; i<n; i++)
+ { 
+ for(int k =0; k<n-i-1; k++)
+ {
+ cout<<" ";
+ }
+ 
+ for(int j=0; j<=2*i; j++)
+ {
+ cout<<"*";
+ }
+ 
+ cout<<endl;
+ }
+}
+
+void pattern5(int n)
+{
+ for(int i=0; i<n; i++)
+ {
+ for(int k=0; k<i; k++)
+ {
+ cout<<" ";
+ }
+ for(int j= 2*(n-i-1); j>=0; j--)
+ {
+ cout<<"*";
+ }
+ cout<<endl;
+ }
+ 
+}
+
+
+int main()
+{
+ int n = 3;
+ pattern1(n);
+ cout<<endl;
+ pattern2(n);
+ cout<<endl;
+ pattern3(n);
+ cout<<endl;
+ pattern4(n);
+ cout<<endl;
+ pattern5(n);
+}
