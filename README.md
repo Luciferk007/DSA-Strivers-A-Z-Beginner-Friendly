@@ -16,7 +16,4 @@ I'm solving problems from the [Striver's A2Z DSA Sheet](https://takeuforward.org
   - Approach & explanation
   - Clean, well-commented code
 
----
-
-## 🗂️ Folder Structure
 
