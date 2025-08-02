@@ -1,0 +1,15 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+
+int main()
+{
+  int arr[] = {1,2,3};
+  next_permutation(arr,arr+3);
+  for(int i=0; i<3; i++)
+  {
+    cout<<arr[i]<<" ";
+  }
+}
+
+Refer this video for better understanding: https://www.youtube.com/watch?v=f2ic2Rsc9pU&t=32s

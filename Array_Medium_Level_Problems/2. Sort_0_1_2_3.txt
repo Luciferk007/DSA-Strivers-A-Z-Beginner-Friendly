@@ -1,0 +1,31 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void sort_1_2_3(int arr[], int n)
+{
+  for(int i=0; i<n; i++)
+  {
+    for(int j=i+1; j<n; j++)
+    {
+      if(arr[i] > arr[j])
+      {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      }
+    }
+  }
+  for(int i=0; i<n; i++)
+  {
+    cout<<arr[i]<<" ";
+  }
+}
+
+
+int main()
+{
+    int arr[] = {2, 3, 3, 3, 1,0};
+    int n = 6;
+    sort_1_2_3(arr,n);
+}

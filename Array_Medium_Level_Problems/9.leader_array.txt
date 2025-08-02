@@ -1,0 +1,45 @@
+#include<iostream>
+#include<vector>
+#include<bits/stdc++.h>
+using namespace std;
+
+void leader_Arr(int arr[],int n)
+{
+  vector<int>leader;
+  bool is_leader = false;
+  for(int i=0; i<n; i++)
+  { 
+    is_leader = true;
+    
+    for(int j=i+1; j<n; j++)
+    {
+      if(arr[i] > arr[j])
+      {
+        
+        is_leader = true;
+      }
+      else
+      {
+        is_leader = false;
+        break;
+      }
+    }
+    if(is_leader == true)
+    {
+      leader.push_back(arr[i]);
+    }
+  }
+  for(int i=0; i<leader.size(); i++)
+  {
+    cout<<leader[i]<<" ";
+  }
+}
+
+
+
+int main()
+{
+  int arr[] = {10, 22, 12, 3, 0, 6,};
+  leader_Arr(arr,6);
+  
+}
