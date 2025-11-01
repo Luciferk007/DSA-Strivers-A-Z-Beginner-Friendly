@@ -1,4 +1,4 @@
-oid insert(stack<int>& s, int temp) {
+void insert(stack<int>& s, int temp) {
     // Base case: if the stack is empty or temp is larger than the top element
     if (s.empty() || s.top() <= temp) {
         s.push(temp);
