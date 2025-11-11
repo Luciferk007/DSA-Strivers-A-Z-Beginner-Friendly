@@ -137,6 +137,29 @@ void  print_list_forward(struct node* head)
   //cout<<"NULL";
 }
 
+//Just as we swap two numbers similarly we can swap the next and prev pointers of each node to reverse the DLL.
+
+struct node* reverse_dll(struct node* head)
+{
+  struct node* temp = NULL:
+  struct node* current = head;
+  while(current != NULL)
+  {
+    temp = current->prev;
+    current->prev = current->next;
+    current->next = temp;
+
+    //Move to next node
+    current = current->next;
+  }
+  //To avoid having head at NULL position we will check if temp is not NULL then only we will update head.
+  if(temp != NULL)
+  {
+    head = temp->prev;
+  }
+  return head;
+}
+
 int main()
 {
   struct node* head = (struct node*)malloc(sizeof(struct node));
@@ -154,4 +177,7 @@ int main()
   cout<<endl;
   head = delete_node_at_starting(head);
   print_list_forward(head);
+  reverse_dll(head);
+  print_list_forward(head);
+  return 0;
 }
